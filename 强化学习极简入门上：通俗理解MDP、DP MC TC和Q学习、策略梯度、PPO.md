@@ -156,7 +156,10 @@ P=\begin{bmatrix} P(s_1|s_1) \ P(s_2|s_1) \ P(s_3|s_1) \cdots P(s_n|s_1)&\\ P(s_
 
 在上式最后一个等式中  
 +  前半部分表示当前状态得到的即时奖励$`E[R_{t+1}|S_t = s] = R(s)`$
-+  后半部分表示当前状态得到的所有持久奖励$`\gamma E[V(S_{t+1})|S_t = s]`$，可以根据从状态s出发的转移概率得到『至于上述推导的最后一步，在于$`E[G_{t+1}|S_t = s]`$等于$`E[V(S_{t+1})|S_t = s)]`$』  
++  后半部分表示当前状态得到的所有持久奖励$`\gamma E[V(S_{t+1})|S_t = s]`$，可以根据从状态s出发的转移概率得到『至于上述推导的最后一步，在于$`E[G_{t+1}|S_t = s]`$等于$`E[V(S_{t+1})|S_t = s)]`$』
+
+   <img width="710" alt="image" src="https://github.com/MrHaiPi/ChatGPT_principle_fine-tuning_code_paper/assets/42087083/59b8f649-f364-4c9f-a1da-78190670b98e">
+
 
    有个别朋友在我维护的Machine Learning读书会群里说，对上述推导最后一步的推导过程有疑问，考虑到本文追求详尽细致，加之大部分资料都是把这个当结论默认的，故还是把这个推导过程详细写一下    
 ```math  
