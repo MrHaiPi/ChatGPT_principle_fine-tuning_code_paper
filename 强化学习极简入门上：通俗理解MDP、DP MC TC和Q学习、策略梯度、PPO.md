@@ -219,7 +219,10 @@ R_{s1} + \gamma (P_{12}R_{s2} + P_{13}R_{s3}) + \gamma^2(P_{24} R_{s4} + P_{25} 
 > 当然，你也可以如此计算(可以很明显的看出，计算量不如上述过程简洁，所以一般优先按上述方式计算)  
 ```math
   \begin{aligned} V(s1) &= E[G_t|S_t=s] \\& = p_{12} \times G^{s2}_{s1} + p_{13} \times G^{s3}_{s1} \\& = P_{12} (R_{s1} + \gamma R_{s2}) + P_{13} (R_{s1} + \gamma R_{s3})\\& = 0.6(5 + 0.5\times 7) + 0.4(5+0.5\times 3) \\& = 7.7 \end{aligned}
-```  
+```
+
+<img width="702" alt="image" src="https://github.com/MrHaiPi/ChatGPT_principle_fine-tuning_code_paper/assets/42087083/b7e8d020-089b-4881-b23e-f56f7ebfc089">
+
 
 上述例子的状态比较少所以计算量不大，但当状态一多，则贝尔曼方程的计算量还是比较大的，而求解较大规模的马尔可夫奖励过程中的价值函数时，可以用的方法包括：动态规划、蒙特卡洛方法、时序差分(temporal difference，简称TD)方法  
 当然，其中细节还是不少的，下文第二部分会详述这三大方法
