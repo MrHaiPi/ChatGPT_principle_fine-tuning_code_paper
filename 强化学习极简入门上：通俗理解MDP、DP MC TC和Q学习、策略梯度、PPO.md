@@ -82,6 +82,8 @@
 
     此外，还有对策略梯度算法的改进，比如TRPO算法、PPO算法，当然PPO算法也可称之为是一种Actor-Critic架构，下文会重点阐述.  
 
+<img width="810" alt="image" src="https://github.com/MrHaiPi/ChatGPT_principle_fine-tuning_code_paper/assets/42087083/e90ee51c-b0a9-4410-b18f-338a028c4f96">
+
 可能你还有点懵懵懂懂，没关系，毕竟还有不少背景知识还没有交待，比如RL其实是一个马尔可夫决策过程(Markov decision process，MDP)，而为说清楚MDP，得先从随机过程、马尔可夫过程(Markov process，简称MP)开始讲起，故为考虑逻辑清晰，我们还是把整个继承/脉络梳理下.
 
 ## 1.2 什么是马尔科夫决策过程
