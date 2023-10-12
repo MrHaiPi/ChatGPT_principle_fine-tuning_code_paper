@@ -492,7 +492,7 @@ Q_\pi (s,a) = R(s,a) + \gamma \sum_{s' \in S}^{}P(s'|s,a)V_\pi (s')
 ```math
     V(S_t) \leftarrow E_\pi [R_{t+1} + \gamma V(S_{t+1})]
 ```  
-  且DP求解状态S_t的状态值函数时，需要利用所有后续状态$`S_{t+1}`$
+  且DP求解状态$`S_t`$的状态值函数时，需要利用所有后续状态$`S_{t+1}`$
 ```math
     V_{\pi}(s) = \sum_{a \in A}^{}\pi (a|s)\left [ r(s,a) + \gamma \sum_{s' \in S}^{}P(s'|s,a)V_\pi (s'))\right ]
 ```  
@@ -502,7 +502,7 @@ Q_\pi (s,a) = R(s,a) + \gamma \sum_{s' \in S}^{}P(s'|s,a)V_\pi (s')
     V(S_t) \leftarrow V(S_t) + \alpha [G_t - V(S_t)]
 ```  
 
-+ 而时序差分(TD)呢，它既要采样得到上述第一个等式的期望值，而且还要通过使用上述第三个等式中当前的估计值V来替代真实值$`v_\pi`$
++ 而时序差分(TD)呢，它既要采样得到上述第一个等式的期望值，而且还要通过使用上述第三个等式中当前的估计值$`V_\pi (S_{t+1})`$来替代真实值$`v_\pi (S_{t+1})`$
   且TD每过一个time step就利用奖励$`R_{t+1}`$和值函数$`V(S_{t+1})`$ 更新一次（当然，这里所说的one-step TD 方法，也可以两步一更新，三步一更新….）
   考虑到$`G_t = R_{t+1} + \gamma V(S_{t+1})`$，可得  
 ```math
