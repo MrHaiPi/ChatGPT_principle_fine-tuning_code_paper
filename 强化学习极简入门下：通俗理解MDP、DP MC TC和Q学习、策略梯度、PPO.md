@@ -211,8 +211,10 @@ $`→`$如果$`A^{\theta }(s_{t},a_{t})`$是负的(即小于0)，意味着在状
 > 实际应用中，往往使用generalized advantage estimator (GAE) 来计算$`A^{\theta }(s_{t},a_{t})`$，基本思想是通过指数加权多个不同TD误差步数的$`A\pi (s,a)=R+\gamma V\pi (st+1)−V\pi (s)`$来获取更加稳定的优势函数：
 >
 > ![image](https://github.com/MrHaiPi/ChatGPT_principle_fine-tuning_code_paper/assets/42087083/a48d66a7-be02-43f6-a8f6-bba6a600528c)
-> 
-> ![169566d0826be57995c73aaf4f867bf2](https://github.com/MrHaiPi/ChatGPT_principle_fine-tuning_code_paper/assets/42087083/b1594821-a559->424f-bb65-b54322359a96)
+> ![image](https://github.com/MrHaiPi/ChatGPT_principle_fine-tuning_code_paper/assets/42087083/763d82e0-a06b-4d41-b568-5cf684ebeb9f)
+> <img width="757" alt="cbd6ce335584b40906132e5091dae9f1" src="https://github.com/MrHaiPi/ChatGPT_principle_fine-tuning_code_paper/assets/42087083/7f26a549-d0cc-426f-b9e9-4450c4af5c33">
+>
+> 将$`A^{\theta }(s_{t},a_{t})`$带入$`\theta`$
 > 
 > ![775feefd878cb2ad82e54d0989a3a5ef](https://github.com/MrHaiPi/ChatGPT_principle_fine-tuning_code_paper/assets/42087083/fd1ff3e1-6ee9-4466-abd8-766878651d71)
 > 
