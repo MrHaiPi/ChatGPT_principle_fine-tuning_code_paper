@@ -194,7 +194,7 @@ $`\nabla \bar{R}_{\theta} \approx \frac{1}{N} \sum_{n=1}^{N} \sum_{t=1}^{T_{n}}\
 
 而这个$`R(\tau)-b`$一般被定义为优势函数$`A^{\theta}(s_t,a_t)`$，有几点值得注意:  
 
-1.  在考虑到评估动作的价值，就看其因此得到的期望奖励，故一般有$`A_\pi (s,a) = Q_\pi (s,a) - V_\pi (s)`$，此举意味着在选择一个动作时，根据该动作相对于特定状态下其他可用动作的执行情况来选择，而不是根据该动作的绝对值(由$`Q`$函数估计)  
+1.  在考虑到评估动作的价值，就看其因此得到的期望奖励，故一般有$`A_\pi (s,a) = Q_\pi (s,a) - V_\pi (s)`$ (为什么：https://zhuanlan.zhihu.com/p/26308073)，此举意味着在选择一个动作时，根据该动作相对于特定状态下其他可用动作的执行情况来选择，而不是根据该动作的绝对值(由$`Q`$函数估计)  
 且通常我们**只学习$`V_\pi (s)`$「比如通过时序差分法估计」，然后通过$`V_\pi (s)`$与奖励的结合来估计$`Q_\pi`$,即$`Q_{\pi}=R+\gamma V\pi (st+1)`$
 ，从而可得**  
 $`A\pi (s,a)=Q\pi (s,a)−V\pi (s)=R+\gamma V\pi (st+1)−V\pi (s)`$  
@@ -208,6 +208,17 @@ $`→`$如果$`A^{\theta }(s_{t},a_{t})`$是负的(即小于0)，意味着在状
 \mathbb{E}_{\left(s_{t}, a_{t}\right) \sim \pi_{\theta}}\left[A^{\theta}\left(s_{t}, a_{t}\right) \nabla \log p_{\theta}\left(a_{t}^{n} | s_{t}^{n}\right)\right]
 ```
 
+（实际应用中，往往使用generalized advantage estimator (GAE) 来计算$`A^{\theta }(s_{t},a_{t})`$，基本思想是通过指数加权多个不同TD误差步数的$`A\pi (s,a)=R+\gamma V\pi (st+1)−V\pi (s)`$来获取更加稳定的优势函数：
+
+![image](https://github.com/MrHaiPi/ChatGPT_principle_fine-tuning_code_paper/assets/42087083/a48d66a7-be02-43f6-a8f6-bba6a600528c)
+
+![169566d0826be57995c73aaf4f867bf2](https://github.com/MrHaiPi/ChatGPT_principle_fine-tuning_code_paper/assets/42087083/b1594821-a559-424f-bb65-b54322359a96)
+
+![775feefd878cb2ad82e54d0989a3a5ef](https://github.com/MrHaiPi/ChatGPT_principle_fine-tuning_code_paper/assets/42087083/fd1ff3e1-6ee9-4466-abd8-766878651d71)
+
+在代码实现时通过如下方式：
+$`A_t^{GAE}=\sum_{l=0}^{\infty}(\gamma \lambda)^l \delta_{t+l}^V=\delta_{t}^V + \sum_{l=1}^{\infty}(\gamma \lambda)^l \delta_{t+l}^V=\delta_{t}^V + \gamma \lambda \sum_{l=0}^{\infty}(\gamma \lambda)^l \delta_{t+1 + l}^V=\delta_{t}^V + A_{t+1}^{GAE}`$
+）
 
 进一步，由于$`A^{\theta}(s_t,a_t)`$是演员$`\theta`$与环境交互的时候计算出来的，基于重要性采样的原则，当从$`\theta`$换到$`\theta'`$的时候，就需要在
 ```math
